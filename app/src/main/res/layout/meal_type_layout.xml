@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What is your favorite ... ?"
+        />
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:layout_gravity="center"
+        >
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMainCourse"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="main course" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSideDish"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="side dish" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDessert"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dessert" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAppetizer"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="appetizer" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSalad"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="salad" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipBread"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bread" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipBreakfast"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="breakfast" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSoup"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="soup" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipBeverage"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="beverage" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSauce"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sauce" />
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>
