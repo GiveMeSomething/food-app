@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What is your favorite ... ?"
+        />
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:layout_gravity="center"
+        >
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDairy"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dairy" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipEgg"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Egg" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGluten"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gluten" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipGrain"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grain" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipPeanut"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peanut" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSeafood"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seafood" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSesame"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sesame" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipShellfish"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shellfish" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSoy"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soy" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTreeNut"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TreeNut" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWheat"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wheat" />
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>

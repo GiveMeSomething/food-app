@@ -17,6 +17,7 @@ import com.example.foodapp.repository.api.enums.Intolerance;
 import com.example.foodapp.repository.api.enums.MealType;
 import com.example.foodapp.repository.model.Recipe;
 import com.example.foodapp.repository.api.repository.RecipeRepository;
+import com.google.android.material.chip.Chip;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +35,12 @@ public class MainActivity extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.black));
 
         if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.container, new RecipeFragment())
+//                    .commitNow();
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new RecipeFragment())
+                    .replace(R.id.container, new ChipFragment())
                     .commitNow();
         }
     }
