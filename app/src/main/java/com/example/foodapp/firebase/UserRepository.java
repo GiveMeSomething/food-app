@@ -159,7 +159,7 @@ public class UserRepository {
             if (resultRecipeId != null) {
                 onComplete.accept(resultRecipeId);
             }
-        })
+        });
     }
 
     public void deleteRecipeById(RecipeType recipeType, int recipeId, @Nullable Runnable onComplete)
