@@ -130,11 +130,48 @@ public class UserRepository {
             throw new InputMismatchException("Invalid email provided");
         }
 
-        String key = currentUser.child(recipeType.value).push().getKey();
         Map<String, Object> userUpdate = new HashMap<>();
 
-        userUpdate.put("/" + recipeType.value + "/" + key, recipeId);
+        userUpdate.put("/" + recipeType.value + "/" + recipeId, recipeId);
         currentUser.updateChildren(userUpdate);
+    }
+
+    public void getRecipeById(
+            RecipeType recipeType,
+            int recipeId,
+            @Nullable Consumer<Integer> onComplete
+    ) throws InputMismatchException {
+        if (currentUser == null) {
+            throw new InputMismatchException("Invalid email provided");
+        }
+
+        currentUser.child("/" + recipeType.value + "/" + recipeId).get().addOnCompleteListener(task -> {
+            if (onComplete == null || !task.isComplete()) {
+                return;
+            }
+
+            DataSnapshot snapshot = task.getResult();
+            if (!snapshot.exists()) {
+                return;
+            }
+
+            Integer resultRecipeId = snapshot.getValue(Integer.class);
+            if (resultRecipeId != null) {
+                onComplete.accept(resultRecipeId);
+            }
+        })
+    }
+
+    public void deleteRecipeById(RecipeType recipeType, int recipeId, @Nullable Runnable onComplete)
+            throws InputMismatchException {
+        if (onComplete == null || currentUser == null) {
+            throw new InputMismatchException("Invalid email provided");
+        }
+
+        Map<String, Object> userUpdate = new HashMap<>();
+
+        userUpdate.put("/" + recipeType.value + "/" + recipeId, null);
+        currentUser.updateChildren(userUpdate).addOnCompleteListener(task -> onComplete.run());
     }
 }
 
