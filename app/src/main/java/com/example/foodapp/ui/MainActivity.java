@@ -8,10 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.foodapp.R;
 import com.example.foodapp.databinding.ActivityMainBinding;
+import com.example.foodapp.firebase.entity.UserPreference;
 import com.example.foodapp.repository.model.Recipe;
 import com.example.foodapp.ui.fragments.ChipFragment;
 import com.example.foodapp.ui.fragments.HomeFragment;
@@ -86,10 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (firebaseAuth.getCurrentUser() != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, preferenceFragment)
-                    .commit();
+            showLoginSuccessFragment();
         } else if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -163,14 +162,7 @@ public class MainActivity extends AppCompatActivity {
     private LoginFragment setupLoginFragment() {
         LoginFragment loginFragment = new LoginFragment();
 
-        loginFragment.setOnLoginSuccess(() -> {
-            clearAllFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, preferenceFragment,
-                            ChipFragment.class.getCanonicalName())
-                    .commit();
-        });
+        loginFragment.setOnLoginSuccess(this::showLoginSuccessFragment);
 
         loginFragment.setShowSignUp(() -> {
             signUpFragment = setupSignUpFragment();
@@ -194,5 +186,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return signUpFragment;
+    }
+
+    private void showLoginSuccessFragment() {
+        clearAllFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, preferenceFragment,
+                        ChipFragment.class.getCanonicalName())
+                .commit();
+        userViewModel.getUserPreferenceLiveData().observe(this, new Observer<UserPreference>() {
+            @Override
+            public void onChanged(UserPreference userPreference) {
+                if (userPreference != null) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, homeFragment)
+                            .commit();
+                    userViewModel.getUserPreferenceLiveData().removeObserver(this);
+                }
+            }
+        });
     }
 }
