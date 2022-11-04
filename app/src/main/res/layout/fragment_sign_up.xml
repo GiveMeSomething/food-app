@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_food_app">
+    android:background="@drawable/background_food_app"
+    android:transitionGroup="true">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvBack"
@@ -127,6 +128,15 @@
                         tools:text="prelookstudio@gmail.com" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:text="Password must have 8 or more characters"
+                    android:textColor="@color/spanish_gray"
+                    android:textSize="@dimen/_7ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btSignUp"
