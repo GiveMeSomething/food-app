@@ -3,6 +3,7 @@ package com.example.foodapp.ui;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -160,8 +161,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private LoginFragment setupLoginFragment() {
-        LoginFragment loginFragment = new LoginFragment();
-
         loginFragment.setOnLoginSuccess(this::showLoginSuccessFragment);
 
         loginFragment.setShowSignUp(() -> {
@@ -177,18 +176,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private SignUpFragment setupSignUpFragment() {
-        SignUpFragment signUpFragment = new SignUpFragment();
-
         signUpFragment.setShowHome(() -> {
             clearAllFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    homeFragment, RecipeFragment.class.getCanonicalName()).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, preferenceFragment,
+                            ChipFragment.class.getCanonicalName())
+                    .commit();
+            Toast.makeText(this, "Thank you for signing up. Have fun!", Toast.LENGTH_LONG).show();
         });
 
         return signUpFragment;
     }
 
     private void showLoginSuccessFragment() {
+        Toast.makeText(this, "Login successfully. Have fun!", Toast.LENGTH_SHORT).show();
+
         clearAllFragment();
         getSupportFragmentManager()
                 .beginTransaction()
