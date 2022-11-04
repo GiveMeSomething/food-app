@@ -77,20 +77,36 @@ public class MainActivity extends AppCompatActivity {
 
         signUpFragment = setupSignUpFragment();
 
+        preferenceFragment.setOnSubmitPreferences(() -> {
+            clearAllFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, homeFragment,
+                            RecipeFragment.class.getCanonicalName())
+                    .commit();
+        });
+
         if (firebaseAuth.getCurrentUser() != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    homeFragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, homeFragment)
+                    .commit();
         } else if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    loginFragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, loginFragment)
+                    .commit();
         }
 
         // Internal fragments
         homeFragment.setOnUserMenuItemClickListener(new SearchFragment.OnUserMenuItemClickListener() {
             @Override
             public void onSavedRecipesClick() {
-                getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
-                        savedRecipesFragment).addToBackStack(null).commit();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.fragment_container, savedRecipesFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
 
             @Override
@@ -150,8 +166,11 @@ public class MainActivity extends AppCompatActivity {
 
         loginFragment.setOnLoginSuccess(() -> {
             clearAllFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    homeFragment, RecipeFragment.class.getCanonicalName()).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, preferenceFragment,
+                            ChipFragment.class.getCanonicalName())
+                    .commit();
         });
 
         loginFragment.setShowSignUp(() -> {

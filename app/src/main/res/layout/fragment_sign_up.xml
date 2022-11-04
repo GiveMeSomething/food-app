@@ -77,6 +77,7 @@
                     android:gravity="center_vertical"
                     android:hint="Name"
                     android:inputType="text"
+                    android:saveEnabled="false"
                     tools:text="Arlene Mccoy" />
 
                 <TextView
@@ -97,6 +98,7 @@
                     android:gravity="center_vertical"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
+                    android:saveEnabled="false"
                     tools:text="prelookstudio@gmail.com" />
 
                 <TextView
@@ -125,6 +127,7 @@
                         android:gravity="center_vertical"
                         android:hint="Password"
                         android:inputType="textPassword|textNoSuggestions"
+                        android:saveEnabled="false"
                         tools:text="prelookstudio@gmail.com" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -132,8 +135,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:text="Password must have 8 or more characters"
                     android:textColor="@color/spanish_gray"
                     android:textSize="@dimen/_7ssp" />
